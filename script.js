@@ -42,7 +42,25 @@ btnScroll.addEventListener('click', (e) => {
   console.log(s1coords);
   console.log(e.target.getBoundingClientRect());
 
-  console.log('Current scroll (X/Y)', window.pageXOffset, pageYOffset);
+  // console.log('Current scroll (X/Y)', window.pageXOffset, pageYOffset);
+  // console.log("View Port ", document.documentElement.clientHeight, document.documentElement.clientWidth);
+
+  // Quick Scroll 
+  // window.scrollTo(s1coords.left + window.pageXOffset, s1coords.top + window.pageYOffset);
+
+  // Smooth Scroll 
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: "smooth",
+  // });
+
+  // Modern Way -> 
+  section1.scrollIntoView({
+    behavior: "smooth"
+  });
+
 
 });
+
 
