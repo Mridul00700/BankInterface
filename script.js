@@ -32,3 +32,17 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+// Scroll View More -> 
+const btnScroll = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScroll.addEventListener('click', (e) => {
+  const s1coords = section1.getBoundingClientRect();
+  console.log(s1coords);
+  console.log(e.target.getBoundingClientRect());
+
+  console.log('Current scroll (X/Y)', window.pageXOffset, pageYOffset);
+
+});
+
