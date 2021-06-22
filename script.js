@@ -7,6 +7,8 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+const btnScroll = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
 
 const openModal = function (e) {
   e.preventDefault();
@@ -34,8 +36,7 @@ document.addEventListener('keydown', function (e) {
 });
 
 // Scroll View More -> 
-const btnScroll = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
+
 
 btnScroll.addEventListener('click', (e) => {
   const s1coords = section1.getBoundingClientRect();
@@ -61,6 +62,30 @@ btnScroll.addEventListener('click', (e) => {
   });
 
 });
+
+// Page Navigation -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Event -->
 const randomInt = (min, max) => Math.floor((Math.random() * (max - min + 1)) + min);
