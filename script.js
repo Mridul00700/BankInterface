@@ -9,6 +9,10 @@ const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const btnScroll = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
+const nav = document.querySelector('.nav');
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
 
 const openModal = function (e) {
   e.preventDefault();
@@ -94,9 +98,7 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 
 // Tab Component ->
 
-const tabs = document.querySelectorAll('.operations__tab');
-const tabsContainer = document.querySelector('.operations__tab-container');
-const tabsContent = document.querySelectorAll('.operations__content');
+
 
 tabsContainer.addEventListener('click', function (e) {
   e.preventDefault();
@@ -118,6 +120,12 @@ tabsContainer.addEventListener('click', function (e) {
 });
 
 
+// Menu fade animation -> (with event-delegation)
+// mouseenter == mouseover except that mouseenter doesn't bubble hence cannot be used here---
+nav.addEventListener('mouseover', function (e) {
+
+
+});
 
 
 
