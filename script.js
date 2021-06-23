@@ -65,55 +65,85 @@ btnScroll.addEventListener('click', (e) => {
 
 // Page Navigation -->
 
+// Not efficient code --
+// document.querySelectorAll('.nav__link').forEach(function (node) {
+//   node.addEventListener('click', function (e) {
+//     e.preventDefault();
+//     const id = this.getAttribute('href');
+//     console.log(id);
+//     document.querySelector(id).scrollIntoView({
+//       behavior: "smooth"
+//     })
+//   })
+// });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Event -->
-const randomInt = (min, max) => Math.floor((Math.random() * (max - min + 1)) + min);
-
-const randomColor = () => `rgb(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)})`
-
-document.querySelector('.nav__link').addEventListener('click', function (e) {
-  this.style.backgroundColor = randomColor();
-  console.log("LINK", e.target, e.currentTarget);
-
-  // // Stop Propogation
-  // e.stopPropagation();
-
-
-});
-
+// Event deligation --> better solution
 
 document.querySelector('.nav__links').addEventListener('click', function (e) {
-  this.style.backgroundColor = randomColor();
-  console.log("LINKS", e.target, e.currentTarget);
+  e.preventDefault();
+  // console.log(e.target);
 
+  // Class check --
+  if (e.target.classList.contains('nav__link')) {
+
+
+    const id = e.target.getAttribute('href');
+    document.querySelector(id).scrollIntoView({
+      behavior: 'smooth',
+    });
+  }
 });
 
 
-document.querySelector('.nav').addEventListener('click', function (e) {
 
-  this.style.backgroundColor = randomColor();
-  console.log("NAV", e.target, e.currentTarget);
 
-}, true);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // Event -->
+// const randomInt = (min, max) => Math.floor((Math.random() * (max - min + 1)) + min);
+
+// const randomColor = () => `rgb(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)})`
+
+// document.querySelector('.nav__link').addEventListener('click', function (e) {
+//   this.style.backgroundColor = randomColor();
+//   console.log("LINK", e.target, e.currentTarget);
+
+//   // // Stop Propogation
+//   // e.stopPropagation();
+
+
+// });
+
+
+// document.querySelector('.nav__links').addEventListener('click', function (e) {
+//   this.style.backgroundColor = randomColor();
+//   console.log("LINKS", e.target, e.currentTarget);
+
+// });
+
+
+// document.querySelector('.nav').addEventListener('click', function (e) {
+
+//   this.style.backgroundColor = randomColor();
+//   console.log("NAV", e.target, e.currentTarget);
+
+// }, true);
 
