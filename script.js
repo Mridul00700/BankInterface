@@ -122,10 +122,38 @@ tabsContainer.addEventListener('click', function (e) {
 
 // Menu fade animation -> (with event-delegation)
 // mouseenter == mouseover except that mouseenter doesn't bubble hence cannot be used here---
-nav.addEventListener('mouseover', function (e) {
+
+// const fadeHandler = (e, opacity) => {
+const fadeHandler = function (e) {
+
+  if (e.target.classList.contains('nav__link')) {
+    const link = e.target;
+    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('img');
+
+    // siblings.forEach(el => {
+
+    //   el.style.opacity = 1;
+    // });
+
+    siblings.forEach(el => {
+      if (el !== link) {
+        el.style.opacity = this;
+      }
+    });
+    logo.style.opacity = this;
+  }
+}
 
 
-});
+// nav.addEventListener('mouseover', e => fadeHandler(e, 0.5));
+nav.addEventListener('mouseover', fadeHandler.bind(0.5));
+
+
+// nav.addEventListener('mouseout', e => fadeHandler(e, 1));
+nav.addEventListener('mouseout', fadeHandler.bind(1));
+
+
 
 
 
