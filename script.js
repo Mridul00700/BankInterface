@@ -153,6 +153,9 @@ nav.addEventListener('mouseover', fadeHandler.bind(0.5));
 // nav.addEventListener('mouseout', e => fadeHandler(e, 1));
 nav.addEventListener('mouseout', fadeHandler.bind(1));
 
+// Sticky Navigation -> 
+
+
 
 
 
