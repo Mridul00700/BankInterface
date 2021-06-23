@@ -155,6 +155,16 @@ nav.addEventListener('mouseout', fadeHandler.bind(1));
 
 // Sticky Navigation -> 
 
+// OLD and inefficent way -->
+// const intialcoord = section1.getBoundingClientRect();
+
+// window.addEventListener('scroll', function (e) {
+//   // console.log(window.scrollY);
+//   if (window.scrollY > intialcoord.top) nav.classList.add('sticky');
+//   else nav.classList.remove('sticky');
+// });
+
+// new intersection API 
 
 
 
