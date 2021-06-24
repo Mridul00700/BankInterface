@@ -192,6 +192,8 @@ const headerObserver = new IntersectionObserver(stickNav, {
 
 headerObserver.observe(header);
 
+// Section fade-in
+
 
 
 
