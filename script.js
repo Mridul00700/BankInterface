@@ -198,7 +198,12 @@ const allSection = document.querySelectorAll('.section');
 
 const revealSecObserver = function (entries, observer) {
   const [entry] = entries;
-  console.log(entry);
+  // console.log(entry);
+  if (entry.isIntersecting) {
+    entry.target.classList.remove('section--hidden');
+    // else entry.target.classList.add('section--hidden');
+    observer.unobserve(entry.target);
+  }
 
 }
 
