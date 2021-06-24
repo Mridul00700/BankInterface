@@ -166,6 +166,33 @@ nav.addEventListener('mouseout', fadeHandler.bind(1));
 
 // new intersection API 
 
+// 
+
+// observer.observe(section1);
+
+const header = document.querySelector('.header');
+const navHeight = nav.getBoundingClientRect();
+// console.log(navHeight);
+
+const stickNav = function (entries) {
+  const [entry] = entries;
+  console.log(entry);
+  if (!entry.isIntersecting) {
+    nav.classList.add('sticky');
+  } else {
+    nav.classList.remove('sticky');
+  }
+}
+
+const headerObserver = new IntersectionObserver(stickNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navHeight.height}px`
+});
+
+headerObserver.observe(header);
+
+
 
 
 
