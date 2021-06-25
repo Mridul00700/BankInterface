@@ -217,6 +217,8 @@ allSection.forEach((section) => {
   sectionObserver.observe(section);
 });
 
+// Lazy-Load Images
+
 
 
 
