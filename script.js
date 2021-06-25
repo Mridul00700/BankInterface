@@ -44,8 +44,8 @@ document.addEventListener('keydown', function (e) {
 
 btnScroll.addEventListener('click', (e) => {
   const s1coords = section1.getBoundingClientRect();
-  console.log(s1coords);
-  console.log(e.target.getBoundingClientRect());
+  // console.log(s1coords);
+  // console.log(e.target.getBoundingClientRect());
 
   // console.log('Current scroll (X/Y)', window.pageXOffset, pageYOffset);
   // console.log("View Port ", document.documentElement.clientHeight, document.documentElement.clientWidth);
@@ -259,6 +259,9 @@ const slides = document.querySelectorAll('.slide');
 const slider = document.querySelector('.slider');
 const buttonLeft = document.querySelector('.slider__btn--left');
 const buttonRight = document.querySelector('.slider__btn--right');
+const dotContainer = document.querySelector('.dots');
+
+
 let currentSlide = 0;
 const maxSlide = slides.length
 
@@ -305,6 +308,12 @@ buttonLeft.addEventListener('click', prevSlide);
 
 // ////
 // Slider Dots --->>>
+
+document.addEventListener('keydown', (e) => {
+  // console.log(e);
+  if (e.key === 'ArrowLeft') prevSlide();
+  e.key === 'ArrowRight' && nextSlide();
+});
 
 
 
