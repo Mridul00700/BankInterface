@@ -224,7 +224,7 @@ const imgTargets = document.querySelectorAll('img[data-src]');
 
 const loadImg = (entries, observer) => {
   const [entry] = entries;
-  console.log(entry);
+  // console.log(entry);
   // guard clause -->
   if (!entry.isIntersecting) return
 
@@ -244,7 +244,8 @@ const loadImg = (entries, observer) => {
 
 const imgObserver = new IntersectionObserver(loadImg, {
   root: null,
-  threshold: 0
+  threshold: 0,
+  rootMargin: '200px'
 });
 
 imgTargets.forEach(img => imgObserver.observe(img));
