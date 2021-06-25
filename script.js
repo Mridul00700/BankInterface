@@ -251,7 +251,52 @@ const imgObserver = new IntersectionObserver(loadImg, {
 imgTargets.forEach(img => imgObserver.observe(img));
 
 
-// Slider Image --->
+// Slider Images --->
+
+const slides = document.querySelectorAll('.slide');
+const slider = document.querySelector('.slider');
+const buttonLeft = document.querySelector('.slider__btn--left');
+const buttonRight = document.querySelector('.slider__btn--right');
+let currentSlide = 0;
+const maxSlide = slides.length
+
+// Testing-->>
+slider.style.transform = 'scale(0.3) translateX(-800px)'
+slider.style.overflow = 'visible'
+
+// 0%, 100%, 200%, 300%
+
+const translateSlides = (slide) => {
+  slides.forEach((s, i) => s.style.transform = `translateX(${(i - slide) * 100}%)`);
+}
+
+translateSlides(0);
+
+const nextSlide = () => {
+  if (currentSlide === maxSlide - 1) {
+    currentSlide = 0;
+  } else {
+
+    currentSlide++;
+  }
+  // -100% 0% 100% 200% ... Shift right-->
+  translateSlides(currentSlide);
+}
+
+const prevSlide = () => {
+  if (currentSlide === 0) {
+    currentSlide = maxSlide - 1;
+  } else {
+    currentSlide--;
+  }
+  // -100% 0% 100% 200% ... Shift right-->
+  translateSlides(currentSlide);
+}
+
+
+// Next Slide -->>
+buttonRight.addEventListener('click', nextSlide);
+buttonLeft.addEventListener('click', prevSlide);
 
 
 
