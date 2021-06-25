@@ -251,6 +251,8 @@ const imgObserver = new IntersectionObserver(loadImg, {
 imgTargets.forEach(img => imgObserver.observe(img));
 
 
+
+
 // Slider Images --->
 
 const slides = document.querySelectorAll('.slide');
@@ -260,9 +262,9 @@ const buttonRight = document.querySelector('.slider__btn--right');
 let currentSlide = 0;
 const maxSlide = slides.length
 
-// Testing-->>
-slider.style.transform = 'scale(0.3) translateX(-800px)'
-slider.style.overflow = 'visible'
+// // Testing-->>
+// slider.style.transform = 'scale(0.3) translateX(-800px)'
+// slider.style.overflow = 'visible'
 
 // 0%, 100%, 200%, 300%
 
@@ -301,6 +303,8 @@ buttonLeft.addEventListener('click', prevSlide);
 
 
 
+// ////
+// Slider Dots --->>>
 
 
 
@@ -315,6 +319,21 @@ buttonLeft.addEventListener('click', prevSlide);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Events Practice ---->>>>>
 
 // // Event -->
 // const randomInt = (min, max) => Math.floor((Math.random() * (max - min + 1)) + min);
