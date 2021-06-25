@@ -219,6 +219,35 @@ allSection.forEach((section) => {
 
 // Lazy-Load Images
 
+const imgTargets = document.querySelectorAll('img[data-src]');
+
+
+const loadImg = (entries, observer) => {
+  const [entry] = entries;
+  console.log(entry);
+  // guard clause -->
+  if (!entry.isIntersecting) return
+
+  // Replace src (lazy-img) with data-src (orignal)
+  entry.target.src = entry.target.dataset.src;
+
+  // entry.target.classList.remove('lazy-img');
+  // when javascript finishes loading the img (original) on the screen it emits load event.. which we can listen to
+
+  entry.target.addEventListener('load', () => {
+    entry.target.classList.remove('lazy-img');
+  });
+
+  observer.unobserve(entry.target);
+
+};
+
+const imgObserver = new IntersectionObserver(loadImg, {
+  root: null,
+  threshold: 0
+});
+
+imgTargets.forEach(img => imgObserver.observe(img));
 
 
 
