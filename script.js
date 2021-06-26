@@ -326,6 +326,17 @@ document.addEventListener('keydown', (e) => {
 });
 
 
+// Dots functionality -->>
+// event deligation..
+dotContainer.addEventListener('click', (e) => {
+  if (e.target.classList.contains('dots__dot')) {
+    // console.log('DOT');
+    // const slide = e.target.dataset.slide
+    const { slide } = e.target.dataset;
+    translateSlides(slide);
+  }
+});
+
 
 
 
