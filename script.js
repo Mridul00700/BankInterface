@@ -263,16 +263,21 @@ const dotContainer = document.querySelector('.dots');
 
 
 let currentSlide = 0;
-const maxSlide = slides.length
+const maxSlide = slides.length;
 
 // // Testing-->>
 // slider.style.transform = 'scale(0.3) translateX(-800px)'
 // slider.style.overflow = 'visible'
 
+// Creating dots
 const createDots = () => {
 
-}
+  slides.forEach((_, i) => {
+    dotContainer.insertAdjacentHTML('beforeend', `<button class="dots__dot" data-slide="${i}"></button>`)
+  })
+};
 
+createDots();
 
 // 0%, 100%, 200%, 300%
 
@@ -319,6 +324,8 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft') prevSlide();
   e.key === 'ArrowRight' && nextSlide();
 });
+
+
 
 
 
