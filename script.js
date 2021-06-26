@@ -269,6 +269,11 @@ const maxSlide = slides.length
 // slider.style.transform = 'scale(0.3) translateX(-800px)'
 // slider.style.overflow = 'visible'
 
+const createDots = () => {
+
+}
+
+
 // 0%, 100%, 200%, 300%
 
 const translateSlides = (slide) => {
