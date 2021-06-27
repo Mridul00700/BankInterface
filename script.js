@@ -274,38 +274,60 @@ const createDots = () => {
 
   slides.forEach((_, i) => {
     dotContainer.insertAdjacentHTML('beforeend', `<button class="dots__dot" data-slide="${i}"></button>`)
-  })
+  });
 };
 
 createDots();
 
+
+const activateDot = (slide) => {
+  document.querySelectorAll('.dots__dot').forEach((dot) => {
+    dot.classList.remove('dots__dot--active');
+    // console.log(document.querySelectorAll('.dots__dot'));
+  });
+
+  // console.log(document.querySelector(`.dots__dot[data-slide=${slide}]`));
+
+  document.querySelector(`.dots__dot[data-slide="${slide}"]`).classList.add('dots__dot--active');
+  // console.log(currentSlide);
+}
+activateDot(0);
+
+// activateDot(0);
 // 0%, 100%, 200%, 300%
 
 const translateSlides = (slide) => {
   slides.forEach((s, i) => s.style.transform = `translateX(${(i - slide) * 100}%)`);
+  // console.log(currentSlide);
+
 }
 
 translateSlides(0);
 
 const nextSlide = () => {
-  if (currentSlide === maxSlide - 1) {
+  if (currentSlide >= maxSlide - 1) {
     currentSlide = 0;
   } else {
-
+    // console.log(currentSlide);
     currentSlide++;
   }
   // -100% 0% 100% 200% ... Shift right-->
   translateSlides(currentSlide);
+  activateDot(currentSlide);
 }
 
 const prevSlide = () => {
-  if (currentSlide === 0) {
+  if (currentSlide <= 0) {
     currentSlide = maxSlide - 1;
   } else {
+    // console.log(currentSlide);
+
     currentSlide--;
   }
   // -100% 0% 100% 200% ... Shift right-->
   translateSlides(currentSlide);
+  activateDot(currentSlide);
+
 }
 
 
@@ -333,11 +355,14 @@ dotContainer.addEventListener('click', (e) => {
     // console.log('DOT');
     // const slide = e.target.dataset.slide
     const { slide } = e.target.dataset;
+    currentSlide = slide;
+
     translateSlides(slide);
+    activateDot(slide);
   }
 });
 
-
+// 
 
 
 
